@@ -22,6 +22,51 @@ export const profile = {
   ],
 };
 
+export const showcaseSites = [
+  {
+    name: "Al Hawaj Builders",
+    domain: "alhawajbuilders.com",
+    url: "https://www.alhawajbuilders.com/",
+    image: "/showcase/alhawaj.webp",
+    blurb: "Immersive architecture & construction site with 3D visuals and scroll-driven animation.",
+  },
+  {
+    name: "RepConnect.ai",
+    domain: "repconnect.ai",
+    url: "https://repconnect.ai/",
+    image: "/showcase/repconnect.webp",
+    blurb: "AI virtual sales rep for B2B flooring distributors — pricing, quotes and team controls.",
+  },
+  {
+    name: "NRGY Events",
+    domain: "nrgyevents.com",
+    url: "https://nrgyevents.com/",
+    image: "/showcase/nrgy.webp",
+    blurb: "Expo & event booking platform with live floor plans and booth reservations.",
+  },
+  {
+    name: "FloorMatch",
+    domain: "floormatch.repconnect.ai",
+    url: "https://floormatch.repconnect.ai/",
+    image: "/showcase/floormatch.webp",
+    blurb: "Conversational AI tool that guides homeowners to a personalized flooring match.",
+  },
+  {
+    name: "Mega Max Global Trading",
+    domain: "megamaxglobaltrading.com",
+    url: "https://www.megamaxglobaltrading.com/",
+    image: "/showcase/megamax.webp",
+    blurb: "Marketplace for certified heavy construction equipment with inspection support.",
+  },
+  {
+    name: "March Match",
+    domain: "march-match-frontend.vercel.app",
+    url: "https://march-match-frontend.vercel.app/",
+    image: "/showcase/marchmatch.webp",
+    blurb: "Fast-paced March Madness betting-pool app with live scoring checkpoints.",
+  },
+];
+
 export const stats = [
   { value: 5, suffix: "+", label: "Years Experience" },
   { value: 15, suffix: "+", label: "Projects Shipped" },
@@ -270,6 +315,7 @@ export const coursework = [
 
 export const navLinks = [
   { href: "#home", label: "Home" },
+  { href: "#showcase", label: "Showcase" },
   { href: "#about", label: "About" },
   { href: "#skills", label: "Skills" },
   { href: "#experience", label: "Experience" },

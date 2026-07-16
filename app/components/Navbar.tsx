@@ -1,14 +1,38 @@
 "use client";
 
 import { AnimatePresence, motion, useMotionValueEvent, useScroll } from "framer-motion";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { navLinks, profile } from "../lib/data";
 import { CloseIcon, MenuIcon } from "./Icons";
+
+function useActiveSection() {
+  const [active, setActive] = useState("home");
+
+  useEffect(() => {
+    const ids = navLinks.map((link) => link.href.replace("#", ""));
+    const elements = ids.map((id) => document.getElementById(id)).filter((el): el is HTMLElement => el !== null);
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) setActive(entry.target.id);
+        });
+      },
+      { rootMargin: "-45% 0px -45% 0px", threshold: 0 },
+    );
+
+    elements.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
+
+  return active;
+}
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
-  const { scrollY } = useScroll();
+  const { scrollY, scrollYProgress } = useScroll();
+  const active = useActiveSection();
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     setScrolled(latest > 24);
@@ -21,7 +45,7 @@ export function Navbar() {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.7, ease: [0.21, 0.47, 0.32, 0.98] }}
         className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${
-          scrolled ? "bg-[#05060a]/80 backdrop-blur-xl border-b border-white/10" : "bg-transparent"
+          scrolled ? "border-b border-white/10 bg-[#05060a]/80 backdrop-blur-xl" : "bg-transparent"
         }`}
       >
         <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4 sm:px-8">
@@ -33,16 +57,29 @@ export function Navbar() {
           </a>
 
           <ul className="hidden items-center gap-1 rounded-full border border-white/10 bg-white/[0.03] p-1 md:flex">
-            {navLinks.map((link) => (
-              <li key={link.href}>
-                <a
-                  href={link.href}
-                  className="relative rounded-full px-4 py-2 text-sm text-zinc-300 transition-colors hover:text-white"
-                >
-                  {link.label}
-                </a>
-              </li>
-            ))}
+            {navLinks.map((link) => {
+              const id = link.href.replace("#", "");
+              const isActive = id === active;
+              return (
+                <li key={link.href} className="relative">
+                  <a
+                    href={link.href}
+                    className={`relative z-10 block rounded-full px-4 py-2 text-sm transition-colors duration-300 ${
+                      isActive ? "text-white" : "text-zinc-400 hover:text-white"
+                    }`}
+                  >
+                    {link.label}
+                  </a>
+                  {isActive && (
+                    <motion.span
+                      layoutId="nav-pill"
+                      className="absolute inset-0 z-0 rounded-full bg-white/10"
+                      transition={{ type: "spring", stiffness: 380, damping: 32 }}
+                    />
+                  )}
+                </li>
+              );
+            })}
           </ul>
 
           <a
@@ -60,6 +97,11 @@ export function Navbar() {
             {open ? <CloseIcon className="h-5 w-5" /> : <MenuIcon className="h-5 w-5" />}
           </button>
         </nav>
+
+        <motion.div
+          className="h-[2px] origin-left bg-gradient-to-r from-indigo-400 via-violet-400 to-cyan-300"
+          style={{ scaleX: scrollYProgress }}
+        />
       </motion.header>
 
       <AnimatePresence>
@@ -72,17 +114,28 @@ export function Navbar() {
             className="fixed inset-x-0 top-[64px] z-40 overflow-hidden border-b border-white/10 bg-[#05060a]/95 backdrop-blur-xl md:hidden"
           >
             <ul className="flex flex-col gap-1 px-6 py-4">
-              {navLinks.map((link) => (
-                <li key={link.href}>
-                  <a
-                    href={link.href}
-                    onClick={() => setOpen(false)}
-                    className="block rounded-lg px-3 py-3 text-base text-zinc-200 hover:bg-white/5 hover:text-white"
-                  >
-                    {link.label}
-                  </a>
-                </li>
-              ))}
+              {navLinks.map((link) => {
+                const id = link.href.replace("#", "");
+                const isActive = id === active;
+                return (
+                  <li key={link.href}>
+                    <a
+                      href={link.href}
+                      onClick={() => setOpen(false)}
+                      className={`flex items-center gap-2.5 rounded-lg px-3 py-3 text-base transition-colors ${
+                        isActive ? "bg-white/5 font-medium text-white" : "text-zinc-300 hover:bg-white/5 hover:text-white"
+                      }`}
+                    >
+                      <span
+                        className={`h-1.5 w-1.5 rounded-full transition-colors duration-300 ${
+                          isActive ? "bg-gradient-to-r from-indigo-400 to-cyan-300" : "bg-transparent"
+                        }`}
+                      />
+                      {link.label}
+                    </a>
+                  </li>
+                );
+              })}
             </ul>
           </motion.div>
         )}
