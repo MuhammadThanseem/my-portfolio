@@ -3,13 +3,14 @@ export const profile = {
   shortName: "Thanseem",
   titles: [
     "Software Engineer",
+    "Angular Developer",
     "Full-Stack Developer",
     "IoT Enthusiast",
     "MEAN / Next.js Specialist",
     "AI / RAG Developer",
   ],
   tagline:
-    "I am a self-taught developer who loves to solve problems digitally with top notch technologies — specialised in web and IoT technologies.",
+    "I am a self-taught developer building primarily with Angular, who loves to solve problems digitally with top notch technologies — specialised in web and IoT technologies.",
   email: "muhammedthanseem@gmail.com",
   phone: "+91 85478 64929",
   location: "Calicut, Kerala, India",
@@ -76,6 +77,19 @@ export const stats = [
 
 export const skillGroups = [
   {
+    title: "Core (5000+ lines)",
+    skills: [
+      { name: "Angular", level: 95 },
+      { name: "Next JS", level: 90 },
+      { name: "Vue JS", level: 88 },
+      { name: "Node JS", level: 88 },
+      { name: "Python", level: 85 },
+      { name: "MongoDB", level: 82 },
+      { name: "Git", level: 92 },
+      { name: "HTML / CSS", level: 90 },
+    ],
+  },
+  {
     title: "AI & LLM",
     skills: [
       { name: "RAG (Retrieval-Augmented Generation)", level: 75 },
@@ -83,19 +97,6 @@ export const skillGroups = [
       { name: "Vector Databases", level: 70 },
       { name: "LLM APIs (OpenAI / Anthropic)", level: 78 },
       { name: "Prompt Engineering", level: 80 },
-    ],
-  },
-  {
-    title: "Core (5000+ lines)",
-    skills: [
-      { name: "Angular", level: 90 },
-      { name: "Vue JS", level: 88 },
-      { name: "Next JS", level: 90 },
-      { name: "Node JS", level: 88 },
-      { name: "Python", level: 85 },
-      { name: "MongoDB", level: 82 },
-      { name: "Git", level: 92 },
-      { name: "HTML / CSS", level: 90 },
     ],
   },
   {
@@ -124,15 +125,15 @@ export const experience = [
   {
     company: "Trivand Technologies Pvt Ltd",
     role: "Software Engineer",
-    period: "Oct 2022 — Present",
+    period: "Oct 2023 — Present",
     location: "Trivandrum, India",
     points: [
-      "Install and configure Angular, Node JS and Next JS projects.",
+      "Develop and maintain Angular applications as primary frontend framework, alongside Node JS and Next JS projects.",
       "Configure and deploy MEAN stack based projects using version control.",
       "Work on insurance-based projects and vehicle inspection claim creation systems.",
       "Own JIRA project management and Scrum planning.",
       "Lead Git version control, team management, branching, code merging and release management.",
-      "Build an Atomic Structure project with reusable, atomic-design components.",
+      "Architect an Atomic Structure project in Angular with reusable, atomic-design components.",
       "Practice Agile methodologies across delivery cycles.",
     ],
   },

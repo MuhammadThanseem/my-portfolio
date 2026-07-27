@@ -75,38 +75,21 @@ export function Contact() {
                 </div>
               </div>
 
-              <form
-                action={`mailto:${profile.email}`}
-                method="post"
-                encType="text/plain"
-                className="space-y-4"
-              >
-                <div className="grid gap-4 sm:grid-cols-2">
-                  <input
-                    name="name"
-                    placeholder="Your name"
-                    className="rounded-xl border border-white/10 bg-black/30 px-4 py-3 text-sm text-white placeholder:text-zinc-600 outline-none transition-colors focus:border-cyan-400/60"
-                  />
-                  <input
-                    name="email"
-                    type="email"
-                    placeholder="Your email"
-                    className="rounded-xl border border-white/10 bg-black/30 px-4 py-3 text-sm text-white placeholder:text-zinc-600 outline-none transition-colors focus:border-cyan-400/60"
-                  />
-                </div>
-                <textarea
-                  name="message"
-                  rows={4}
-                  placeholder="Tell me about your project..."
-                  className="w-full rounded-xl border border-white/10 bg-black/30 px-4 py-3 text-sm text-white placeholder:text-zinc-600 outline-none transition-colors focus:border-cyan-400/60"
-                />
-                <button
-                  type="submit"
-                  className="w-full rounded-xl bg-gradient-to-r from-indigo-500 to-cyan-400 px-6 py-3 text-sm font-semibold text-black transition-transform duration-300 hover:scale-[1.02]"
+              <div className="flex flex-col justify-center gap-4 rounded-2xl border border-white/10 bg-black/20 p-8">
+                <p className="text-sm uppercase tracking-[0.2em] text-zinc-500">Ready to talk?</p>
+                <p className="text-xl font-semibold text-white">
+                  Drop me a line and I&apos;ll get back to you within a day.
+                </p>
+                <a
+                  href={`mailto:${profile.email}?subject=${encodeURIComponent(
+                    "Let's build something together"
+                  )}`}
+                  className="mt-2 inline-flex w-fit items-center gap-2 rounded-xl bg-gradient-to-r from-indigo-500 to-cyan-400 px-6 py-3 text-sm font-semibold text-black transition-transform duration-300 hover:scale-[1.02]"
                 >
-                  Send Message
-                </button>
-              </form>
+                  <MailIcon className="h-4 w-4" />
+                  Email Me
+                </a>
+              </div>
             </div>
           </div>
         </Reveal>

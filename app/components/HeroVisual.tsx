@@ -7,7 +7,7 @@ const codeLines = [
   "const engineer = {",
   "  name: 'Muhammad Thanseem',",
   "  role: 'Software Engineer',",
-  "  stack: ['Next.js', 'Node', 'Python'],",
+  "  stack: ['Next.js', 'Node', 'Angular'],",
   "  focus: ['Web', 'IoT', 'AI / RAG'],",
   "  available: true,",
   "};",
@@ -42,7 +42,7 @@ const badges = [
   { label: "Next.js", className: "-top-4 left-10" },
   { label: "RAG / AI", className: "top-12 -right-9" },
   { label: "Node.js", className: "bottom-16 -left-11" },
-  { label: "Python", className: "-bottom-5 right-12" },
+  { label: "Angular", className: "-bottom-5 right-12" },
 ];
 
 export function HeroVisual() {
