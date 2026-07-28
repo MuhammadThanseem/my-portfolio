@@ -2,10 +2,20 @@
 
 import { motion, type Variants } from "framer-motion";
 import type { ReactNode } from "react";
+import { EASE_OUT } from "../lib/motion";
 
-const variants: Variants = {
-  hidden: { opacity: 0, y: 28 },
-  visible: { opacity: 1, y: 0 },
+export type RevealVariant = "up" | "left" | "right" | "scale" | "blur" | "clip";
+
+const variantMap: Record<RevealVariant, Variants> = {
+  up: { hidden: { opacity: 0, y: 28 }, visible: { opacity: 1, y: 0 } },
+  left: { hidden: { opacity: 0, x: -48 }, visible: { opacity: 1, x: 0 } },
+  right: { hidden: { opacity: 0, x: 48 }, visible: { opacity: 1, x: 0 } },
+  scale: { hidden: { opacity: 0, scale: 0.9 }, visible: { opacity: 1, scale: 1 } },
+  blur: { hidden: { opacity: 0, filter: "blur(12px)" }, visible: { opacity: 1, filter: "blur(0px)" } },
+  clip: {
+    hidden: { opacity: 0, clipPath: "inset(0 0 100% 0)" },
+    visible: { opacity: 1, clipPath: "inset(0 0 0% 0)" },
+  },
 };
 
 export function Reveal({
@@ -13,20 +23,24 @@ export function Reveal({
   delay = 0,
   className,
   y,
+  variant = "up",
 }: {
   children: ReactNode;
   delay?: number;
   className?: string;
   y?: number;
+  variant?: RevealVariant;
 }) {
+  const variants = y === undefined ? variantMap[variant] : { hidden: { opacity: 0, y }, visible: { opacity: 1, y: 0 } };
+
   return (
     <motion.div
       className={className}
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: "-80px" }}
-      variants={y === undefined ? variants : { hidden: { opacity: 0, y }, visible: { opacity: 1, y: 0 } }}
-      transition={{ duration: 0.6, delay, ease: [0.21, 0.47, 0.32, 0.98] }}
+      variants={variants}
+      transition={{ duration: 0.65, delay, ease: EASE_OUT }}
     >
       {children}
     </motion.div>
@@ -60,5 +74,5 @@ export function RevealStagger({
 
 export const staggerItem: Variants = {
   hidden: { opacity: 0, y: 24 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.55, ease: [0.21, 0.47, 0.32, 0.98] } },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.55, ease: EASE_OUT } },
 };

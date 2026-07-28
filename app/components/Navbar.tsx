@@ -4,6 +4,7 @@ import { AnimatePresence, motion, useMotionValueEvent, useScroll } from "framer-
 import { useEffect, useState } from "react";
 import { navLinks, profile } from "../lib/data";
 import { CloseIcon, MenuIcon } from "./Icons";
+import { MagneticButton } from "./MagneticButton";
 
 function useActiveSection() {
   const [active, setActive] = useState("home");
@@ -82,12 +83,12 @@ export function Navbar() {
             })}
           </ul>
 
-          <a
+          <MagneticButton
             href="#contact"
-            className="hidden rounded-full bg-gradient-to-r from-indigo-500 to-cyan-400 px-5 py-2.5 text-sm font-semibold text-black transition-transform duration-300 hover:scale-105 md:inline-block"
+            className="hidden rounded-full bg-gradient-to-r from-indigo-500 to-cyan-400 px-5 py-2.5 text-sm font-semibold text-black md:inline-block"
           >
             Let&apos;s Talk
-          </a>
+          </MagneticButton>
 
           <button
             aria-label="Toggle menu"

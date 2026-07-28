@@ -1,10 +1,12 @@
 "use client";
 
-import { AnimatePresence, motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import { AnimatePresence, motion, useMotionTemplate, useMotionValue, useSpring, useReducedMotion } from "framer-motion";
+import { useEffect, useState, type MouseEvent } from "react";
 import { profile } from "../lib/data";
 import { ArrowRightIcon, DownloadIcon, socialIcons } from "./Icons";
 import { HeroVisual } from "./HeroVisual";
+import { MagneticButton } from "./MagneticButton";
+import { SplitText } from "./SplitText";
 
 function RotatingTitle() {
   const [index, setIndex] = useState(0);
@@ -35,11 +37,39 @@ function RotatingTitle() {
 }
 
 export function Hero() {
+  const reducedMotion = useReducedMotion();
+  const [spotlightVisible, setSpotlightVisible] = useState(false);
+  const spotX = useMotionValue(50);
+  const spotY = useMotionValue(50);
+  const spotlightX = useSpring(spotX, { stiffness: 120, damping: 24 });
+  const spotlightY = useSpring(spotY, { stiffness: 120, damping: 24 });
+  const spotlightBackground = useMotionTemplate`radial-gradient(600px circle at ${spotlightX}% ${spotlightY}%, rgba(99,102,241,0.14), transparent 70%)`;
+
+  function handleSpotlightMove(e: MouseEvent<HTMLElement>) {
+    if (reducedMotion) return;
+    const rect = e.currentTarget.getBoundingClientRect();
+    spotX.set(((e.clientX - rect.left) / rect.width) * 100);
+    spotY.set(((e.clientY - rect.top) / rect.height) * 100);
+  }
+
   return (
     <section
       id="home"
+      onMouseMove={handleSpotlightMove}
+      onMouseEnter={() => setSpotlightVisible(true)}
+      onMouseLeave={() => setSpotlightVisible(false)}
       className="relative flex min-h-screen flex-col justify-center overflow-hidden px-6 pt-28 pb-16 sm:px-8"
     >
+      {!reducedMotion && (
+        <motion.div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 -z-[1]"
+          animate={{ opacity: spotlightVisible ? 1 : 0 }}
+          transition={{ duration: 0.4 }}
+          style={{ background: spotlightBackground }}
+        />
+      )}
+
       <div className="mx-auto grid w-full max-w-6xl items-center gap-12 lg:grid-cols-2">
         <div className="flex flex-col items-start">
           <motion.p
@@ -55,17 +85,17 @@ export function Hero() {
             Available for freelance &amp; full-time opportunities
           </motion.p>
 
-          <motion.h1
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.1 }}
-            className="text-5xl font-bold tracking-tight text-white sm:text-6xl md:text-7xl"
-          >
-            Hi, I&apos;m{" "}
-            <span className="bg-gradient-to-r from-indigo-400 via-violet-400 to-cyan-300 bg-clip-text text-transparent">
+          <h1 className="text-5xl font-bold tracking-tight text-white sm:text-6xl md:text-7xl">
+            <SplitText text="Hi, I'm" delay={0.15} />{" "}
+            <motion.span
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.55 }}
+              className="inline-block bg-gradient-to-r from-indigo-400 via-violet-400 to-cyan-300 bg-[length:200%_auto] bg-clip-text text-transparent motion-safe:animate-[gradient-pan_5s_ease-in-out_infinite]"
+            >
               {profile.shortName}
-            </span>
-          </motion.h1>
+            </motion.span>
+          </h1>
 
           <motion.h2
             initial={{ opacity: 0, y: 24 }}
@@ -91,21 +121,21 @@ export function Hero() {
             transition={{ duration: 0.7, delay: 0.4 }}
             className="mt-10 flex flex-wrap items-center gap-4"
           >
-            <a
+            <MagneticButton
               href="#projects"
-              className="group inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-indigo-500 to-cyan-400 px-6 py-3 text-sm font-semibold text-black transition-transform duration-300 hover:scale-105"
+              className="group inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-indigo-500 to-cyan-400 px-6 py-3 text-sm font-semibold text-black shadow-[0_0_0_0_rgba(129,140,248,0)] transition-shadow duration-300 hover:shadow-[0_0_28px_2px_rgba(129,140,248,0.45)]"
             >
               View My Work
               <ArrowRightIcon className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-            </a>
-            <a
+            </MagneticButton>
+            <MagneticButton
               href={profile.resumeUrl}
               download
               className="group inline-flex items-center gap-2 rounded-full border border-white/15 px-6 py-3 text-sm font-semibold text-white transition-colors duration-300 hover:border-white/40 hover:bg-white/5"
             >
               Download CV
               <DownloadIcon className="h-4 w-4 transition-transform duration-300 group-hover:translate-y-0.5" />
-            </a>
+            </MagneticButton>
           </motion.div>
 
           <motion.div

@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useMotionValue, useReducedMotion, useSpring } from "framer-motion";
 import { useEffect, useState } from "react";
 
 const codeLines = [
@@ -47,9 +47,26 @@ const badges = [
 
 export function HeroVisual() {
   const output = useTypewriter(fullCode);
+  const reducedMotion = useReducedMotion();
+  const px = useMotionValue(0);
+  const py = useMotionValue(0);
+  const parallaxX = useSpring(px, { stiffness: 60, damping: 18, mass: 0.6 });
+  const parallaxY = useSpring(py, { stiffness: 60, damping: 18, mass: 0.6 });
+
+  useEffect(() => {
+    if (reducedMotion) return;
+    function handleMove(e: MouseEvent) {
+      const cx = window.innerWidth / 2;
+      const cy = window.innerHeight / 2;
+      px.set(((e.clientX - cx) / cx) * 14);
+      py.set(((e.clientY - cy) / cy) * 14);
+    }
+    window.addEventListener("mousemove", handleMove);
+    return () => window.removeEventListener("mousemove", handleMove);
+  }, [reducedMotion, px, py]);
 
   return (
-    <div className="relative mx-auto hidden w-full max-w-md lg:block">
+    <motion.div style={{ x: parallaxX, y: parallaxY }} className="relative mx-auto hidden w-full max-w-md lg:block">
       <motion.div
         className="absolute -inset-10 rounded-full bg-gradient-to-br from-indigo-600/30 via-violet-600/20 to-cyan-500/20 blur-3xl"
         animate={{ scale: [1, 1.08, 1] }}
@@ -95,6 +112,6 @@ export function HeroVisual() {
           {badge.label}
         </motion.span>
       ))}
-    </div>
+    </motion.div>
   );
 }

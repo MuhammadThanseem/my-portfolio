@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { profile } from "./lib/data";
+import { BackToTop } from "./components/BackToTop";
+import { ClientOnlyChrome } from "./components/ClientOnlyChrome";
+import { FloatingChat } from "./components/FloatingChat";
+import { Loader } from "./components/Loader";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -95,7 +99,11 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
         />
+        <Loader />
+        <ClientOnlyChrome />
         {children}
+        <BackToTop />
+        <FloatingChat />
       </body>
     </html>
   );

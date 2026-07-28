@@ -5,6 +5,7 @@ import type { MouseEvent } from "react";
 import { clientProjects, earlyProjects } from "../lib/data";
 import { ExternalLinkIcon } from "./Icons";
 import { Reveal, RevealStagger, staggerItem } from "./Reveal";
+import { SpotlightCard } from "./SpotlightCard";
 
 function ClientProjectCard({ project }: { project: (typeof clientProjects)[number] }) {
   const x = useMotionValue(0);
@@ -64,10 +65,7 @@ function ClientProjectCard({ project }: { project: (typeof clientProjects)[numbe
 
 function EarlyProjectCard({ project }: { project: (typeof earlyProjects)[number] }) {
   return (
-    <motion.div
-      variants={staggerItem}
-      className="rounded-2xl border border-white/10 bg-white/[0.02] p-6 transition-colors duration-300 hover:border-white/20"
-    >
+    <SpotlightCard variants={staggerItem} className="rounded-2xl border border-white/10 bg-white/[0.02] p-6">
       <p className="text-xs font-semibold uppercase tracking-widest text-zinc-500">{project.type}</p>
       <h3 className="mt-2 text-lg font-semibold text-white">{project.title}</h3>
       <p className="mt-3 text-sm leading-relaxed text-zinc-400">{project.description}</p>
@@ -81,7 +79,7 @@ function EarlyProjectCard({ project }: { project: (typeof earlyProjects)[number]
           </span>
         ))}
       </div>
-    </motion.div>
+    </SpotlightCard>
   );
 }
 
@@ -89,7 +87,7 @@ export function Projects() {
   return (
     <section id="projects" className="relative px-6 py-28 sm:px-8">
       <div className="mx-auto max-w-6xl">
-        <Reveal>
+        <Reveal variant="clip">
           <p className="text-sm font-semibold uppercase tracking-[0.3em] text-cyan-300">Projects</p>
           <h2 className="mt-3 text-3xl font-bold text-white sm:text-4xl">Client &amp; product work</h2>
           <p className="mt-3 max-w-2xl text-zinc-400">
@@ -103,7 +101,7 @@ export function Projects() {
           ))}
         </RevealStagger>
 
-        <Reveal delay={0.1} className="mt-24">
+        <Reveal delay={0.1} variant="left" className="mt-24">
           <p className="text-sm font-semibold uppercase tracking-[0.3em] text-cyan-300">Earlier Work</p>
           <h3 className="mt-3 text-2xl font-bold text-white sm:text-3xl">Academic &amp; freelance projects</h3>
         </Reveal>

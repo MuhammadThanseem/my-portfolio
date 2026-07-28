@@ -3,18 +3,19 @@
 import { motion } from "framer-motion";
 import { profile } from "../lib/data";
 import { MailIcon, PhoneIcon, PinIcon, socialIcons } from "./Icons";
+import { MagneticButton } from "./MagneticButton";
 import { Reveal } from "./Reveal";
 
 export function Contact() {
   return (
     <section id="contact" className="relative px-6 py-28 sm:px-8">
       <div className="mx-auto max-w-6xl">
-        <Reveal>
+        <Reveal variant="right">
           <p className="text-sm font-semibold uppercase tracking-[0.3em] text-cyan-300">Contact</p>
           <h2 className="mt-3 text-3xl font-bold text-white sm:text-4xl">Let&apos;s build something together</h2>
         </Reveal>
 
-        <Reveal delay={0.1}>
+        <Reveal delay={0.1} variant="blur">
           <div className="relative mt-14 overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-white/[0.05] to-transparent p-10 sm:p-14">
             <motion.div
               className="absolute -bottom-24 -left-24 h-64 w-64 rounded-full bg-cyan-500/10 blur-3xl"
@@ -80,15 +81,15 @@ export function Contact() {
                 <p className="text-xl font-semibold text-white">
                   Drop me a line and I&apos;ll get back to you within a day.
                 </p>
-                <a
+                <MagneticButton
                   href={`mailto:${profile.email}?subject=${encodeURIComponent(
                     "Let's build something together"
                   )}`}
-                  className="mt-2 inline-flex w-fit items-center gap-2 rounded-xl bg-gradient-to-r from-indigo-500 to-cyan-400 px-6 py-3 text-sm font-semibold text-black transition-transform duration-300 hover:scale-[1.02]"
+                  className="mt-2 inline-flex w-fit items-center gap-2 rounded-xl bg-gradient-to-r from-indigo-500 to-cyan-400 px-6 py-3 text-sm font-semibold text-black"
                 >
                   <MailIcon className="h-4 w-4" />
                   Email Me
-                </a>
+                </MagneticButton>
               </div>
             </div>
           </div>

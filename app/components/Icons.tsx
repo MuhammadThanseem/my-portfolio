@@ -108,6 +108,27 @@ export function CloseIcon({ className }: IconProps) {
   );
 }
 
+export function ChatIcon({ className }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} className={className} aria-hidden="true">
+      <path
+        d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5Z"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+export function WhatsappIcon({ className }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true">
+      <path d="M17.47 14.38c-.29-.15-1.7-.84-1.97-.93-.26-.1-.46-.15-.65.14-.2.3-.75.94-.92 1.13-.17.2-.34.22-.63.08-.29-.15-1.22-.45-2.33-1.44-.86-.77-1.44-1.71-1.61-2-.17-.3-.02-.46.13-.6.13-.13.29-.34.44-.51.15-.17.2-.3.29-.49.1-.2.05-.37-.02-.51-.08-.15-.65-1.58-.9-2.16-.24-.58-.48-.5-.65-.5h-.56c-.2 0-.51.07-.78.37-.26.3-1.02 1-1.02 2.42 0 1.43 1.05 2.81 1.2 3 .14.2 2.06 3.16 5 4.42.7.3 1.24.48 1.67.62.7.22 1.34.19 1.84.11.56-.08 1.7-.7 1.95-1.37.24-.68.24-1.26.17-1.38-.07-.12-.26-.2-.55-.34Z" />
+      <path d="M12.02 2.5c-5.25 0-9.5 4.25-9.5 9.5 0 1.67.44 3.24 1.2 4.6L2.5 21.5l4.98-1.19a9.44 9.44 0 0 0 4.54 1.16h.01c5.25 0 9.5-4.25 9.5-9.5s-4.26-9.47-9.51-9.47Zm0 17.28h-.01c-1.42 0-2.82-.38-4.03-1.1l-.29-.17-3 .72.8-2.93-.19-.3a7.76 7.76 0 0 1-1.19-4.1c0-4.3 3.5-7.79 7.8-7.79 2.08 0 4.04.81 5.51 2.29a7.73 7.73 0 0 1 2.28 5.51c0 4.3-3.5 7.87-7.68 7.87Z" />
+    </svg>
+  );
+}
+
 export const socialIcons: Record<string, (props: IconProps) => React.JSX.Element> = {
   github: GithubIcon,
   gitlab: GitlabIcon,

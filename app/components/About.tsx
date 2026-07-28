@@ -17,7 +17,7 @@ export function About() {
         </Reveal>
 
         <div className="mt-14 grid gap-14 lg:grid-cols-5">
-          <Reveal delay={0.1} className="lg:col-span-3">
+          <Reveal delay={0.1} variant="left" className="lg:col-span-3">
             <div className="space-y-5 text-lg leading-relaxed text-zinc-400">
               <p>
                 I&apos;m a self-taught software engineer based in {profile.location}, currently building
@@ -51,7 +51,7 @@ export function About() {
             </div>
           </Reveal>
 
-          <Reveal delay={0.2} className="lg:col-span-2">
+          <Reveal delay={0.2} variant="right" className="lg:col-span-2">
             <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-b from-white/[0.04] to-transparent p-8">
               <motion.div
                 className="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-indigo-500/20 blur-3xl"

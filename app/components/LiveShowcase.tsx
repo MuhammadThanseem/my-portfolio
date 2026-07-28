@@ -26,7 +26,7 @@ export function LiveShowcase() {
   return (
     <section id="showcase" className="relative px-6 py-28 sm:px-8">
       <div className="mx-auto max-w-6xl">
-        <Reveal>
+        <Reveal variant="blur">
           <p className="text-sm font-semibold uppercase tracking-[0.3em] text-cyan-300">Live Showcase</p>
           <h2 className="mt-3 text-3xl font-bold text-white sm:text-4xl">Real products, live in production</h2>
           <p className="mt-3 max-w-2xl text-zinc-400">
@@ -34,7 +34,7 @@ export function LiveShowcase() {
           </p>
         </Reveal>
 
-        <Reveal delay={0.1}>
+        <Reveal delay={0.1} variant="scale">
           <div
             className="mt-14 grid gap-6 lg:grid-cols-5 lg:gap-10"
             onMouseEnter={() => setPaused(true)}

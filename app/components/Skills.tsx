@@ -4,6 +4,7 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { skillGroups } from "../lib/data";
 import { Reveal } from "./Reveal";
+import { SpotlightCard } from "./SpotlightCard";
 
 function SkillBar({ name, level, delay }: { name: string; level: number; delay: number }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -31,26 +32,24 @@ export function Skills() {
   return (
     <section id="skills" className="relative px-6 py-28 sm:px-8">
       <div className="mx-auto max-w-6xl">
-        <Reveal>
+        <Reveal variant="blur">
           <p className="text-sm font-semibold uppercase tracking-[0.3em] text-cyan-300">Skills</p>
           <h2 className="mt-3 text-3xl font-bold text-white sm:text-4xl">Technologies I work with</h2>
         </Reveal>
 
         <div className="mt-14 grid gap-8 md:grid-cols-2 xl:grid-cols-4">
           {skillGroups.map((group, groupIndex) => (
-            <Reveal
-              key={group.title}
-              delay={groupIndex * 0.1}
-              className="rounded-3xl border border-white/10 bg-white/[0.02] p-7"
-            >
-              <h3 className="mb-6 text-sm font-semibold uppercase tracking-wide text-zinc-400">
-                {group.title}
-              </h3>
-              <div className="space-y-5">
-                {group.skills.map((skill, i) => (
-                  <SkillBar key={skill.name} name={skill.name} level={skill.level} delay={i * 0.08} />
-                ))}
-              </div>
+            <Reveal key={group.title} delay={groupIndex * 0.1} variant="scale">
+              <SpotlightCard className="rounded-3xl border border-white/10 bg-white/[0.02] p-7">
+                <h3 className="mb-6 text-sm font-semibold uppercase tracking-wide text-zinc-400">
+                  {group.title}
+                </h3>
+                <div className="space-y-5">
+                  {group.skills.map((skill, i) => (
+                    <SkillBar key={skill.name} name={skill.name} level={skill.level} delay={i * 0.08} />
+                  ))}
+                </div>
+              </SpotlightCard>
             </Reveal>
           ))}
         </div>
