@@ -2,18 +2,21 @@
 
 import { motion } from "framer-motion";
 import { profile, stats } from "../lib/data";
+import type { GithubStats } from "../lib/github";
 import { AnimatedCounter } from "./AnimatedCounter";
+import { DraggablePhoto } from "./DraggablePhoto";
+import { GithubActivity } from "./GithubActivity";
 import { Reveal, RevealStagger, staggerItem } from "./Reveal";
 
-export function About() {
+export function About({ githubStats }: { githubStats: GithubStats | null }) {
   return (
-    <section id="about" className="relative px-6 py-28 sm:px-8">
+    <section className="relative px-6 pt-36 pb-28 sm:px-8 sm:pt-40">
       <div className="mx-auto max-w-6xl">
         <Reveal>
           <p className="text-sm font-semibold uppercase tracking-[0.3em] text-cyan-300">About Me</p>
-          <h2 className="mt-3 text-3xl font-bold text-white sm:text-4xl">
+          <h1 className="mt-3 text-3xl font-bold text-white sm:text-4xl md:text-5xl">
             Turning ideas into reliable, production-ready software
-          </h2>
+          </h1>
         </Reveal>
 
         <div className="mt-14 grid gap-14 lg:grid-cols-5">
@@ -52,6 +55,8 @@ export function About() {
           </Reveal>
 
           <Reveal delay={0.2} variant="right" className="lg:col-span-2">
+            <DraggablePhoto />
+
             <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-b from-white/[0.04] to-transparent p-8">
               <motion.div
                 className="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-indigo-500/20 blur-3xl"
@@ -86,6 +91,8 @@ export function About() {
             </div>
           </Reveal>
         </div>
+
+        <GithubActivity stats={githubStats} />
       </div>
     </section>
   );

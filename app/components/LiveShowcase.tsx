@@ -24,11 +24,11 @@ export function LiveShowcase() {
   const site = showcaseSites[index];
 
   return (
-    <section id="showcase" className="relative px-6 py-28 sm:px-8">
+    <section className="relative px-6 pt-36 pb-28 sm:px-8 sm:pt-40">
       <div className="mx-auto max-w-6xl">
         <Reveal variant="blur">
           <p className="text-sm font-semibold uppercase tracking-[0.3em] text-cyan-300">Live Showcase</p>
-          <h2 className="mt-3 text-3xl font-bold text-white sm:text-4xl">Real products, live in production</h2>
+          <h1 className="mt-3 text-3xl font-bold text-white sm:text-4xl md:text-5xl">Real products, live in production</h1>
           <p className="mt-3 max-w-2xl text-zinc-400">
             A closer look at sites and products I&apos;ve designed and shipped for clients.
           </p>

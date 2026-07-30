@@ -1,39 +1,18 @@
 "use client";
 
 import { AnimatePresence, motion, useMotionValueEvent, useScroll } from "framer-motion";
-import { useEffect, useState } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useState } from "react";
 import { navLinks, profile } from "../lib/data";
 import { CloseIcon, MenuIcon } from "./Icons";
 import { MagneticButton } from "./MagneticButton";
-
-function useActiveSection() {
-  const [active, setActive] = useState("home");
-
-  useEffect(() => {
-    const ids = navLinks.map((link) => link.href.replace("#", ""));
-    const elements = ids.map((id) => document.getElementById(id)).filter((el): el is HTMLElement => el !== null);
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) setActive(entry.target.id);
-        });
-      },
-      { rootMargin: "-45% 0px -45% 0px", threshold: 0 },
-    );
-
-    elements.forEach((el) => observer.observe(el));
-    return () => observer.disconnect();
-  }, []);
-
-  return active;
-}
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const { scrollY, scrollYProgress } = useScroll();
-  const active = useActiveSection();
+  const pathname = usePathname();
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     setScrolled(latest > 24);
@@ -50,27 +29,26 @@ export function Navbar() {
         }`}
       >
         <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4 sm:px-8">
-          <a href="#home" className="group flex items-center gap-2 text-lg font-semibold tracking-tight text-white">
+          <Link href="/" className="group flex items-center gap-2 text-lg font-semibold tracking-tight text-white">
             <span className="flex h-9 w-9 items-center justify-center rounded-full bg-gradient-to-br from-indigo-400 via-violet-400 to-cyan-300 text-sm font-bold text-black transition-transform duration-300 group-hover:rotate-12">
               MT
             </span>
             <span className="hidden sm:inline">{profile.shortName}</span>
-          </a>
+          </Link>
 
           <ul className="hidden items-center gap-1 rounded-full border border-white/10 bg-white/[0.03] p-1 md:flex">
             {navLinks.map((link) => {
-              const id = link.href.replace("#", "");
-              const isActive = id === active;
+              const isActive = link.href === "/" ? pathname === "/" : pathname.startsWith(link.href);
               return (
                 <li key={link.href} className="relative">
-                  <a
+                  <Link
                     href={link.href}
                     className={`relative z-10 block rounded-full px-4 py-2 text-sm transition-colors duration-300 ${
                       isActive ? "text-white" : "text-zinc-400 hover:text-white"
                     }`}
                   >
                     {link.label}
-                  </a>
+                  </Link>
                   {isActive && (
                     <motion.span
                       layoutId="nav-pill"
@@ -84,7 +62,7 @@ export function Navbar() {
           </ul>
 
           <MagneticButton
-            href="#contact"
+            href="/contact"
             className="hidden rounded-full bg-gradient-to-r from-indigo-500 to-cyan-400 px-5 py-2.5 text-sm font-semibold text-black md:inline-block"
           >
             Let&apos;s Talk
@@ -116,11 +94,10 @@ export function Navbar() {
           >
             <ul className="flex flex-col gap-1 px-6 py-4">
               {navLinks.map((link) => {
-                const id = link.href.replace("#", "");
-                const isActive = id === active;
+                const isActive = link.href === "/" ? pathname === "/" : pathname.startsWith(link.href);
                 return (
                   <li key={link.href}>
-                    <a
+                    <Link
                       href={link.href}
                       onClick={() => setOpen(false)}
                       className={`flex items-center gap-2.5 rounded-lg px-3 py-3 text-base transition-colors ${
@@ -133,7 +110,7 @@ export function Navbar() {
                         }`}
                       />
                       {link.label}
-                    </a>
+                    </Link>
                   </li>
                 );
               })}

@@ -2,11 +2,12 @@
 
 import { AnimatePresence, motion, useMotionTemplate, useMotionValue, useSpring, useReducedMotion } from "framer-motion";
 import { useEffect, useState, type MouseEvent } from "react";
-import { profile } from "../lib/data";
+import { philosophyNotes, profile } from "../lib/data";
 import { ArrowRightIcon, DownloadIcon, socialIcons } from "./Icons";
 import { HeroVisual } from "./HeroVisual";
 import { MagneticButton } from "./MagneticButton";
 import { SplitText } from "./SplitText";
+import { StickyNote } from "./StickyNote";
 
 function RotatingTitle() {
   const [index, setIndex] = useState(0);
@@ -115,6 +116,18 @@ export function Hero() {
             {profile.tagline}
           </motion.p>
 
+          <div className="mt-8 flex flex-wrap items-start gap-x-6 gap-y-4">
+            {philosophyNotes.map((note, i) => (
+              <StickyNote
+                key={note.text}
+                text={note.text}
+                tape={note.tape}
+                rotate={note.rotate}
+                delay={0.5 + i * 0.1}
+              />
+            ))}
+          </div>
+
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
@@ -122,7 +135,7 @@ export function Hero() {
             className="mt-10 flex flex-wrap items-center gap-4"
           >
             <MagneticButton
-              href="#projects"
+              href="/work"
               className="group inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-indigo-500 to-cyan-400 px-6 py-3 text-sm font-semibold text-black shadow-[0_0_0_0_rgba(129,140,248,0)] transition-shadow duration-300 hover:shadow-[0_0_28px_2px_rgba(129,140,248,0.45)]"
             >
               View My Work

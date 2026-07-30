@@ -2,7 +2,10 @@
 
 import { motion } from "framer-motion";
 import { useMotionValue, useSpring } from "framer-motion";
+import NextLink from "next/link";
 import { useState, type MouseEvent, type ReactNode } from "react";
+
+const MotionLink = motion.create(NextLink);
 
 type Ripple = { id: number; x: number; y: number };
 
@@ -66,6 +69,26 @@ export function MagneticButton({ children, className, href, download, target, re
   );
 
   const sharedClassName = `relative isolate overflow-hidden ${className ?? ""}`;
+  const isInternal = href?.startsWith("/") && !download && !target;
+
+  if (href && isInternal) {
+    return (
+      <MotionLink
+        href={href}
+        onMouseMove={handleMouseMove}
+        onMouseLeave={handleMouseLeave}
+        onClick={handleClick}
+        style={{ x: springX, y: springY }}
+        whileHover={{ scale: 1.045 }}
+        whileTap={{ scale: 0.96 }}
+        transition={{ type: "spring", stiffness: 400, damping: 22 }}
+        data-cursor-hover
+        className={sharedClassName}
+      >
+        {content}
+      </MotionLink>
+    );
+  }
 
   if (href) {
     return (

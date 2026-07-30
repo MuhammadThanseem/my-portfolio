@@ -8,11 +8,11 @@ import { Reveal } from "./Reveal";
 
 export function Contact() {
   return (
-    <section id="contact" className="relative px-6 py-28 sm:px-8">
+    <section className="relative px-6 pt-36 pb-28 sm:px-8 sm:pt-40">
       <div className="mx-auto max-w-6xl">
         <Reveal variant="right">
           <p className="text-sm font-semibold uppercase tracking-[0.3em] text-cyan-300">Contact</p>
-          <h2 className="mt-3 text-3xl font-bold text-white sm:text-4xl">Let&apos;s build something together</h2>
+          <h1 className="mt-3 text-3xl font-bold text-white sm:text-4xl md:text-5xl">Let&apos;s build something together</h1>
         </Reveal>
 
         <Reveal delay={0.1} variant="blur">
@@ -94,11 +94,6 @@ export function Contact() {
             </div>
           </div>
         </Reveal>
-
-        <div className="mt-16 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 text-sm text-zinc-500 sm:flex-row">
-          <p>&copy; {new Date().getFullYear()} {profile.name}. All rights reserved.</p>
-          <p>Built with Next.js &amp; Framer Motion.</p>
-        </div>
       </div>
     </section>
   );

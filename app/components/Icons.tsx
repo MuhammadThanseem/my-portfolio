@@ -129,6 +129,85 @@ export function WhatsappIcon({ className }: IconProps) {
   );
 }
 
+export function CodeIcon({ className }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} className={className} aria-hidden="true">
+      <path d="m9 8-4.5 4 4.5 4M15 8l4.5 4-4.5 4M13.5 5.5l-3 13" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+export function LayersIcon({ className }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} className={className} aria-hidden="true">
+      <path
+        d="m12 3 9 5-9 5-9-5 9-5Z M3 13l9 5 9-5 M3 8l9 5 9-5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+export function SparkleIcon({ className }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} className={className} aria-hidden="true">
+      <path
+        d="M12 3v3M12 18v3M3 12h3M18 12h3M6 6l2 2M16 16l2 2M18 6l-2 2M8 16l-2 2M12 8a4 4 0 0 0 4 4 4 4 0 0 0-4 4 4 4 0 0 0-4-4 4 4 0 0 0 4-4Z"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+export function CpuIcon({ className }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} className={className} aria-hidden="true">
+      <rect x="6" y="6" width="12" height="12" rx="1.5" strokeLinecap="round" strokeLinejoin="round" />
+      <rect x="9.5" y="9.5" width="5" height="5" rx="0.75" strokeLinecap="round" strokeLinejoin="round" />
+      <path
+        d="M9 2.5v2M15 2.5v2M9 19.5v2M15 19.5v2M2.5 9h2M2.5 15h2M19.5 9h2M19.5 15h2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+export function CloudIcon({ className }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} className={className} aria-hidden="true">
+      <path
+        d="M7 18.5a4.5 4.5 0 0 1-.5-8.98 5.5 5.5 0 0 1 10.7-1.9A4 4 0 0 1 17 18.5H7Z"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+export function SearchIcon({ className }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} className={className} aria-hidden="true">
+      <circle cx="11" cy="11" r="6.5" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="m20 20-4.3-4.3" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+export function RocketIcon({ className }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} className={className} aria-hidden="true">
+      <path
+        d="M12 2.5c2.5 1.5 5 5 4.5 10-1 .3-2 .8-3 1.5M12 2.5c-2.5 1.5-5 5-4.5 10 1 .3 2 .8 3 1.5M9 14l-2.5 1c-.6 2 .5 4 .5 4s2-1.1 4-.5M15 14l2.5 1c.6 2-.5 4-.5 4s-2-1.1-4-.5M9.5 14a2.5 2.5 0 1 0 5 0 2.5 2.5 0 0 0-5 0Z"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
 export const socialIcons: Record<string, (props: IconProps) => React.JSX.Element> = {
   github: GithubIcon,
   gitlab: GitlabIcon,

@@ -1,10 +1,13 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { profile } from "./lib/data";
+import { AuroraBackground } from "./components/AuroraBackground";
 import { BackToTop } from "./components/BackToTop";
 import { ClientOnlyChrome } from "./components/ClientOnlyChrome";
 import { FloatingChat } from "./components/FloatingChat";
+import { Footer } from "./components/Footer";
 import { Loader } from "./components/Loader";
+import { Navbar } from "./components/Navbar";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -101,7 +104,10 @@ export default function RootLayout({
         />
         <Loader />
         <ClientOnlyChrome />
-        {children}
+        <AuroraBackground />
+        <Navbar />
+        <main className="flex-1">{children}</main>
+        <Footer />
         <BackToTop />
         <FloatingChat />
       </body>

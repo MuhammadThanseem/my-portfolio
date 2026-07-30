@@ -15,13 +15,20 @@ export const profile = {
   phone: "+91 85478 64929",
   location: "Calicut, Kerala, India",
   resumeUrl: "/Muhammad-Thanseem-C-Resume.pdf",
+  githubUsername: "muhammadthanseem",
   socials: [
-    { label: "GitHub", href: "https://github.com/muhammedthanseemc", icon: "github" },
+    { label: "GitHub", href: "https://github.com/muhammadthanseem", icon: "github" },
     { label: "GitLab", href: "https://gitlab.com/muhammedthanseem", icon: "gitlab" },
     { label: "LinkedIn", href: "https://linkedin.com/in/muhammedthanseem", icon: "linkedin" },
     { label: "Medium", href: "https://medium.com/@muhammedthanseem", icon: "medium" },
   ],
 };
+
+export const philosophyNotes = [
+  { text: "Ship it 🚀", tape: "amber", rotate: -6 },
+  { text: "Tests > vibes ✅", tape: "cyan", rotate: 4 },
+  { text: "Docs while it's fresh 📝", tape: "violet", rotate: -3 },
+] as const;
 
 export const showcaseSites = [
   {
@@ -315,12 +322,81 @@ export const coursework = [
 ];
 
 export const navLinks = [
-  { href: "#home", label: "Home" },
-  { href: "#showcase", label: "Showcase" },
-  { href: "#about", label: "About" },
-  { href: "#skills", label: "Skills" },
-  { href: "#experience", label: "Experience" },
-  { href: "#projects", label: "Projects" },
-  { href: "#education", label: "Education" },
-  { href: "#contact", label: "Contact" },
+  { href: "/", label: "Home" },
+  { href: "/about", label: "About" },
+  { href: "/work", label: "Work" },
+  { href: "/process", label: "Process" },
+  { href: "/services", label: "Services" },
+  { href: "/contact", label: "Contact" },
 ];
+
+export const processSteps = [
+  {
+    step: "01",
+    title: "Discover & Scope",
+    icon: "search",
+    description:
+      "Dig into the problem before touching code — requirements, users, constraints, and what \"done\" actually looks like.",
+  },
+  {
+    step: "02",
+    title: "Architect",
+    icon: "layers",
+    description:
+      "Sketch the data model, API contracts and component structure up front so the build doesn't paint itself into a corner.",
+  },
+  {
+    step: "03",
+    title: "Build",
+    icon: "code",
+    description:
+      "Iterative development in small, reviewable commits — clean git history, meaningful messages, CI green the whole way.",
+  },
+  {
+    step: "04",
+    title: "Test & Review",
+    icon: "rocket",
+    description:
+      "Automated tests and a real code review pass before anything merges — vibes are not a test strategy.",
+  },
+  {
+    step: "05",
+    title: "Ship & Monitor",
+    icon: "cloud",
+    description:
+      "Deploy, watch logs and metrics, and iterate on what real usage tells you instead of what the spec assumed.",
+  },
+] as const;
+
+export const services = [
+  {
+    title: "Web App Development",
+    icon: "code",
+    description: "Full-stack web apps with Next.js, Angular and Vue — from first commit to production deploy.",
+  },
+  {
+    title: "Backend & API Engineering",
+    icon: "layers",
+    description: "REST/GraphQL APIs, database design and integrations with Node.js, Express and Python.",
+  },
+  {
+    title: "AI & RAG Integration",
+    icon: "sparkle",
+    description: "Retrieval-augmented assistants grounded in your product data using LangChain and LLM APIs.",
+  },
+  {
+    title: "IoT Dashboards & Integration",
+    icon: "cpu",
+    description: "Device configuration and live dashboards with ThingsBoard, Grafana and MQTT pipelines.",
+  },
+  {
+    title: "DevOps & Deployment",
+    icon: "cloud",
+    description: "Dockerized deployments, CI/CD pipelines and release management across Git workflows.",
+  },
+  {
+    title: "Code Review & Consulting",
+    icon: "chat",
+    description: "Architecture reviews, PR feedback and technical consulting to keep a codebase healthy as it grows.",
+  },
+] as const;
