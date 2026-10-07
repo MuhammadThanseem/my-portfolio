@@ -20,17 +20,17 @@ export function GithubActivity({ stats }: { stats: GithubStats | null }) {
         className="group relative block overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-b from-white/[0.04] to-transparent p-6 transition-colors duration-300 hover:border-white/20 sm:p-8"
       >
         <motion.div
-          className="pointer-events-none absolute -left-16 -bottom-16 h-48 w-48 rounded-full bg-gradient-to-br from-cyan-400/15 to-indigo-500/10 blur-3xl"
+          className="pointer-events-none absolute -left-16 -bottom-16 h-48 w-48 rounded-full bg-gradient-to-br from-sage-400/15 to-sage-500/10 blur-3xl"
           animate={{ scale: [1, 1.12, 1] }}
           transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
         />
 
         <div className="relative flex items-center justify-between gap-4">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-widest text-cyan-300">Live from GitHub</p>
+            <p className="text-xs font-semibold uppercase tracking-widest text-sage-300">Live from GitHub</p>
             <h3 className="mt-2 text-xl font-semibold text-white">@{user}</h3>
           </div>
-          <span className="flex h-9 w-9 flex-none items-center justify-center rounded-full border border-white/10 text-zinc-400 transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:border-white/30 group-hover:text-white">
+          <span className="flex h-9 w-9 flex-none items-center justify-center rounded-full border border-white/10 text-stone-400 transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:border-white/30 group-hover:text-white">
             <ExternalLinkIcon className="h-4 w-4" />
           </span>
         </div>
@@ -41,29 +41,29 @@ export function GithubActivity({ stats }: { stats: GithubStats | null }) {
               <div className="text-3xl font-bold text-white sm:text-4xl">
                 <AnimatedCounter value={stats.publicRepos} suffix="" />
               </div>
-              <p className="mt-2 text-sm text-zinc-400">Public Repos</p>
+              <p className="mt-2 text-sm text-stone-400">Public Repos</p>
             </motion.div>
             <motion.div variants={staggerItem}>
               <div className="text-3xl font-bold text-white sm:text-4xl">
                 <AnimatedCounter value={stats.totalStars} suffix="" />
               </div>
-              <p className="mt-2 text-sm text-zinc-400">Repo Stars</p>
+              <p className="mt-2 text-sm text-stone-400">Repo Stars</p>
             </motion.div>
             <motion.div variants={staggerItem}>
               <div className="text-3xl font-bold text-white sm:text-4xl">
                 <AnimatedCounter value={stats.followers} suffix="" />
               </div>
-              <p className="mt-2 text-sm text-zinc-400">Followers</p>
+              <p className="mt-2 text-sm text-stone-400">Followers</p>
             </motion.div>
             <motion.div variants={staggerItem}>
               <div className="truncate text-3xl font-bold text-white sm:text-4xl">
                 {stats.topLanguage ?? "—"}
               </div>
-              <p className="mt-2 text-sm text-zinc-400">Top Language</p>
+              <p className="mt-2 text-sm text-stone-400">Top Language</p>
             </motion.div>
           </RevealStagger>
         ) : (
-          <p className="relative mt-8 text-sm text-zinc-500">
+          <p className="relative mt-8 text-sm text-stone-500">
             GitHub stats are taking a break right now — tap through to see the repos directly.
           </p>
         )}

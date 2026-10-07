@@ -47,15 +47,15 @@ export function FloatingChat() {
             exit={{ opacity: 0, scale: 0.9, y: 16 }}
             transition={{ type: "spring", stiffness: 340, damping: 28 }}
             style={{ transformOrigin: "bottom left" }}
-            className="absolute bottom-16 left-0 w-[calc(100vw-3rem)] max-w-sm overflow-hidden rounded-3xl border border-white/10 bg-[#0b0d14]/95 shadow-2xl shadow-black/50 backdrop-blur-xl"
+            className="absolute bottom-16 left-0 w-[calc(100vw-3rem)] max-w-sm overflow-hidden rounded-3xl border border-white/10 bg-[#16130d]/95 shadow-2xl shadow-black/50 backdrop-blur-xl"
           >
             <div className="flex items-center gap-3 border-b border-white/10 px-5 py-4">
-              <span className="flex h-9 w-9 flex-none items-center justify-center rounded-full bg-gradient-to-br from-indigo-400 via-violet-400 to-cyan-300 text-xs font-bold text-black">
+              <span className="flex h-9 w-9 flex-none items-center justify-center rounded-full bg-gradient-to-br from-sage-400 via-sage-400 to-sage-300 text-xs font-bold text-black">
                 MT
               </span>
               <div className="min-w-0">
                 <p className="truncate text-sm font-semibold text-white">{profile.shortName}</p>
-                <p className="flex items-center gap-1.5 text-xs text-zinc-400">
+                <p className="flex items-center gap-1.5 text-xs text-stone-400">
                   <span className="relative flex h-1.5 w-1.5">
                     <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
                     <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-400" />
@@ -70,7 +70,7 @@ export function FloatingChat() {
                 initial={{ opacity: 0, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1, duration: 0.4 }}
-                className="max-w-[85%] rounded-2xl rounded-bl-sm border border-white/10 bg-white/[0.05] px-4 py-2.5 text-sm leading-relaxed text-zinc-200"
+                className="max-w-[85%] rounded-2xl rounded-bl-sm border border-white/10 bg-white/[0.05] px-4 py-2.5 text-sm leading-relaxed text-stone-200"
               >
                 Hi! 👋 What would you like to talk about?
               </motion.div>
@@ -86,7 +86,7 @@ export function FloatingChat() {
                     <button
                       key={t.key}
                       onClick={() => setTopicKey(t.key)}
-                      className="rounded-xl border border-white/10 bg-white/[0.02] px-4 py-2.5 text-left text-sm text-zinc-200 transition-colors duration-300 hover:border-white/25 hover:bg-white/[0.06]"
+                      className="rounded-xl border border-white/10 bg-white/[0.02] px-4 py-2.5 text-left text-sm text-stone-200 transition-colors duration-300 hover:border-white/25 hover:bg-white/[0.06]"
                     >
                       {t.label}
                     </button>
@@ -102,7 +102,7 @@ export function FloatingChat() {
                     exit={{ opacity: 0, y: -8 }}
                     className="flex flex-col gap-3"
                   >
-                    <div className="ml-auto max-w-[85%] rounded-2xl rounded-br-sm bg-gradient-to-r from-indigo-500 to-cyan-400 px-4 py-2.5 text-sm font-medium text-black">
+                    <div className="ml-auto max-w-[85%] rounded-2xl rounded-br-sm bg-gradient-to-r from-sage-500 to-sage-400 px-4 py-2.5 text-sm font-medium text-black">
                       {topic.label.replace(/^\S+\s/, "")}
                     </div>
 
@@ -110,7 +110,7 @@ export function FloatingChat() {
                       initial={{ opacity: 0, y: 8 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: 0.15, duration: 0.4 }}
-                      className="max-w-[85%] rounded-2xl rounded-bl-sm border border-white/10 bg-white/[0.05] px-4 py-2.5 text-sm leading-relaxed text-zinc-200"
+                      className="max-w-[85%] rounded-2xl rounded-bl-sm border border-white/10 bg-white/[0.05] px-4 py-2.5 text-sm leading-relaxed text-stone-200"
                     >
                       Great — pick where you&apos;d like to continue:
                     </motion.div>
@@ -134,12 +134,12 @@ export function FloatingChat() {
                         href={emailHref}
                         className="flex items-center justify-center gap-2 rounded-xl border border-white/15 bg-white/[0.03] px-4 py-3 text-sm font-semibold text-white transition-colors duration-300 hover:border-white/30 hover:bg-white/5"
                       >
-                        <MailIcon className="h-4 w-4 text-cyan-300" />
+                        <MailIcon className="h-4 w-4 text-sage-300" />
                         Continue by Email
                       </MagneticButton>
                       <button
                         onClick={() => setTopicKey(null)}
-                        className="mt-1 self-start text-xs text-zinc-500 transition-colors hover:text-zinc-300"
+                        className="mt-1 self-start text-xs text-stone-500 transition-colors hover:text-stone-300"
                       >
                         ← Choose a different topic
                       </button>
@@ -159,12 +159,12 @@ export function FloatingChat() {
         whileTap={{ scale: 0.92 }}
         transition={{ type: "spring", stiffness: 400, damping: 22 }}
         data-cursor-hover
-        className="relative flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-indigo-500 to-cyan-400 text-black shadow-lg shadow-black/40"
+        className="relative flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-sage-500 to-sage-400 text-black shadow-lg shadow-black/40"
       >
         {!open && (
           <span className="absolute -right-0.5 -top-0.5 flex h-3.5 w-3.5">
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
-            <span className="relative inline-flex h-3.5 w-3.5 rounded-full border-2 border-[#05060a] bg-emerald-400" />
+            <span className="relative inline-flex h-3.5 w-3.5 rounded-full border-2 border-[#0b0a07] bg-emerald-400" />
           </span>
         )}
         <AnimatePresence mode="wait" initial={false}>

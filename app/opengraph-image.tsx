@@ -16,9 +16,9 @@ export default async function Image() {
           flexDirection: "column",
           justifyContent: "center",
           padding: "80px",
-          background: "#05060a",
+          background: "#0b0a07",
           backgroundImage:
-            "radial-gradient(circle at 15% 20%, rgba(99,102,241,0.35), transparent 45%), radial-gradient(circle at 85% 75%, rgba(34,211,238,0.3), transparent 45%)",
+            "radial-gradient(circle at 15% 20%, rgba(133,151,108,0.35), transparent 45%), radial-gradient(circle at 85% 75%, rgba(163,179,137,0.3), transparent 45%)",
         }}
       >
         <div
@@ -27,7 +27,7 @@ export default async function Image() {
             alignItems: "center",
             gap: 10,
             fontSize: 28,
-            color: "#67e8f9",
+            color: "#c3cdad",
             letterSpacing: 4,
             textTransform: "uppercase",
           }}
@@ -51,7 +51,7 @@ export default async function Image() {
             marginTop: 20,
             fontSize: 40,
             fontWeight: 600,
-            color: "#c7d2fe",
+            color: "#dbe2cf",
           }}
         >
           {profile.titles[0]} · {profile.titles[1]}
@@ -61,7 +61,7 @@ export default async function Image() {
             display: "flex",
             marginTop: 32,
             fontSize: 28,
-            color: "#a1a1aa",
+            color: "#a8a29e",
             maxWidth: 900,
           }}
         >

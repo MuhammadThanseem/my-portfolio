@@ -51,7 +51,7 @@ export function SpotlightCard({
         aria-hidden
         className="pointer-events-none absolute inset-0 rounded-[inherit] opacity-0 transition-opacity duration-500 group-hover:opacity-100"
         style={{
-          background: `radial-gradient(220px circle at ${pos.px}% ${pos.py}%, rgba(129,140,248,0.16), transparent 70%)`,
+          background: `radial-gradient(220px circle at ${pos.px}% ${pos.py}%, rgba(163,179,137,0.16), transparent 70%)`,
         }}
       />
       <div

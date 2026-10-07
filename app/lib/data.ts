@@ -25,9 +25,9 @@ export const profile = {
 };
 
 export const philosophyNotes = [
-  { text: "Ship it 🚀", tape: "amber", rotate: -6 },
-  { text: "Tests > vibes ✅", tape: "cyan", rotate: 4 },
-  { text: "Docs while it's fresh 📝", tape: "violet", rotate: -3 },
+  { text: "Ship it 🚀", tape: "cream", rotate: -6 },
+  { text: "Tests > vibes ✅", tape: "stone", rotate: 4 },
+  { text: "Docs while it's fresh 📝", tape: "sage", rotate: -3 },
 ] as const;
 
 export const showcaseSites = [

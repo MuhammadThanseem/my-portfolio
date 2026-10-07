@@ -4,21 +4,21 @@ import { motion } from "framer-motion";
 
 export function AuroraBackground() {
   return (
-    <div className="pointer-events-none fixed inset-0 -z-10 overflow-hidden bg-[#05060a]">
+    <div className="pointer-events-none fixed inset-0 -z-10 overflow-hidden bg-[#0b0a07]">
       <div className="absolute inset-0 [background-image:linear-gradient(to_right,rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.04)_1px,transparent_1px)] [background-size:56px_56px] [mask-image:radial-gradient(ellipse_80%_60%_at_50%_0%,#000_60%,transparent_100%)]" />
 
       <motion.div
-        className="absolute -top-40 left-[-10%] h-[38rem] w-[38rem] rounded-full bg-indigo-600/30 blur-[120px]"
+        className="absolute -top-40 left-[-10%] h-[38rem] w-[38rem] rounded-full bg-sage-600/30 blur-[120px]"
         animate={{ x: [0, 60, -30, 0], y: [0, 40, -20, 0] }}
         transition={{ duration: 26, repeat: Infinity, ease: "easeInOut" }}
       />
       <motion.div
-        className="absolute top-[20%] right-[-15%] h-[34rem] w-[34rem] rounded-full bg-cyan-500/20 blur-[130px]"
+        className="absolute top-[20%] right-[-15%] h-[34rem] w-[34rem] rounded-full bg-sage-500/20 blur-[130px]"
         animate={{ x: [0, -50, 30, 0], y: [0, -30, 20, 0] }}
         transition={{ duration: 30, repeat: Infinity, ease: "easeInOut" }}
       />
       <motion.div
-        className="absolute bottom-[-10%] left-[15%] h-[32rem] w-[32rem] rounded-full bg-fuchsia-600/15 blur-[130px]"
+        className="absolute bottom-[-10%] left-[15%] h-[32rem] w-[32rem] rounded-full bg-sage-600/15 blur-[130px]"
         animate={{ x: [0, 40, -40, 0], y: [0, -30, 30, 0] }}
         transition={{ duration: 34, repeat: Infinity, ease: "easeInOut" }}
       />

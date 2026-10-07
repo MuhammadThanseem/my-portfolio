@@ -59,10 +59,10 @@ export function Experience() {
   }, []);
 
   return (
-    <section id="experience" className="relative px-6 py-28 sm:px-8">
+    <section id="experience" className="relative px-6 py-20 sm:px-8">
       <div className="mx-auto max-w-6xl">
         <Reveal variant="left">
-          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-cyan-300">Experience</p>
+          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-sage-300">Experience</p>
           <h2 className="mt-3 text-3xl font-bold text-white sm:text-4xl">Where I&apos;ve worked</h2>
         </Reveal>
 
@@ -70,7 +70,7 @@ export function Experience() {
           <div className="absolute left-[7px] top-2 bottom-2 w-px bg-white/10 sm:left-[9px]">
             <div
               ref={lineRef}
-              className="h-full w-full origin-top bg-gradient-to-b from-indigo-500 via-violet-400 to-cyan-300"
+              className="h-full w-full origin-top bg-gradient-to-b from-sage-500 via-sage-400 to-sage-300"
             />
           </div>
 
@@ -78,22 +78,22 @@ export function Experience() {
             {experience.map((job, i) => (
               <Reveal key={job.company} delay={i * 0.08} variant="left">
                 <li className="relative">
-                  <span className="timeline-dot absolute -left-8 top-1.5 h-3.5 w-3.5 rounded-full border-2 border-[#05060a] bg-gradient-to-br from-indigo-400 to-cyan-300 sm:-left-10" />
+                  <span className="timeline-dot absolute -left-8 top-1.5 h-3.5 w-3.5 rounded-full border-2 border-[#0b0a07] bg-gradient-to-br from-sage-400 to-sage-300 sm:-left-10" />
 
                   <div className="flex flex-wrap items-baseline justify-between gap-3">
                     <h3 className="text-xl font-semibold text-white">{job.role}</h3>
-                    <span className="rounded-full border border-white/10 bg-white/[0.03] px-3 py-1 text-xs text-zinc-400">
+                    <span className="rounded-full border border-white/10 bg-white/[0.03] px-3 py-1 text-xs text-stone-400">
                       {job.period}
                     </span>
                   </div>
-                  <p className="mt-1 text-sm font-medium text-cyan-300">
+                  <p className="mt-1 text-sm font-medium text-sage-300">
                     {job.company} &middot; {job.location}
                   </p>
 
                   <ul className="mt-4 grid gap-2 sm:grid-cols-2">
                     {job.points.map((point) => (
-                      <li key={point} className="flex gap-2 text-sm leading-relaxed text-zinc-400">
-                        <span className="mt-2 h-1 w-1 flex-none rounded-full bg-zinc-600" />
+                      <li key={point} className="flex gap-2 text-sm leading-relaxed text-stone-400">
+                        <span className="mt-2 h-1 w-1 flex-none rounded-full bg-stone-600" />
                         {point}
                       </li>
                     ))}

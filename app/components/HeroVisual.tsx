@@ -68,7 +68,7 @@ export function HeroVisual() {
   return (
     <motion.div style={{ x: parallaxX, y: parallaxY }} className="relative mx-auto hidden w-full max-w-md lg:block">
       <motion.div
-        className="absolute -inset-10 rounded-full bg-gradient-to-br from-indigo-600/30 via-violet-600/20 to-cyan-500/20 blur-3xl"
+        className="absolute -inset-10 rounded-full bg-gradient-to-br from-sage-600/30 via-sage-600/20 to-sage-500/20 blur-3xl"
         animate={{ scale: [1, 1.08, 1] }}
         transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
       />
@@ -77,21 +77,21 @@ export function HeroVisual() {
         initial={{ opacity: 0, y: 30, rotate: -2 }}
         animate={{ opacity: 1, y: 0, rotate: -2 }}
         transition={{ duration: 0.8, delay: 0.5, ease: [0.21, 0.47, 0.32, 0.98] }}
-        className="relative rounded-2xl border border-white/10 bg-[#0b0d14]/90 shadow-2xl shadow-black/50 backdrop-blur-xl"
+        className="relative rounded-2xl border border-white/10 bg-[#16130d]/90 shadow-2xl shadow-black/50 backdrop-blur-xl"
       >
         <div className="flex items-center gap-2 border-b border-white/10 px-5 py-3.5">
           <span className="h-3 w-3 rounded-full bg-red-400/70" />
           <span className="h-3 w-3 rounded-full bg-yellow-400/70" />
           <span className="h-3 w-3 rounded-full bg-green-400/70" />
-          <span className="ml-3 text-xs text-zinc-500">profile.ts</span>
+          <span className="ml-3 text-xs text-stone-500">profile.ts</span>
         </div>
-        <pre className="min-h-[230px] whitespace-pre-wrap px-6 py-6 font-mono text-[13px] leading-relaxed text-zinc-300">
+        <pre className="min-h-[230px] whitespace-pre-wrap px-6 py-6 font-mono text-[13px] leading-relaxed text-stone-300">
           <code>
             {output}
             <motion.span
               animate={{ opacity: [1, 0] }}
               transition={{ duration: 0.7, repeat: Infinity, repeatType: "reverse" }}
-              className="inline-block h-[1em] w-[2px] translate-y-[2px] bg-cyan-300 align-middle"
+              className="inline-block h-[1em] w-[2px] translate-y-[2px] bg-sage-300 align-middle"
             />
           </code>
         </pre>
@@ -107,7 +107,7 @@ export function HeroVisual() {
             scale: { duration: 0.5, delay: 1.3 + i * 0.15 },
             y: { duration: 4, repeat: Infinity, ease: "easeInOut", delay: i * 0.4 },
           }}
-          className={`absolute rounded-full border border-white/10 bg-white/[0.06] px-4 py-1.5 text-xs font-medium text-zinc-200 backdrop-blur-md ${badge.className}`}
+          className={`absolute rounded-full border border-white/10 bg-white/[0.06] px-4 py-1.5 text-xs font-medium text-stone-200 backdrop-blur-md ${badge.className}`}
         >
           {badge.label}
         </motion.span>

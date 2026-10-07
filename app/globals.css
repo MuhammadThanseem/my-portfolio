@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --background: #05060a;
-  --foreground: #f4f4f5;
+  --background: #0a0908;
+  --foreground: #ece3d1;
 }
 
 @theme inline {
@@ -10,6 +10,14 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
+  /* Single muted accent family — replaces the old multi-hue gradient with
+     tonal variation of one dusty sage green, matching a minimal palette. */
+  --color-sage-200: #dbe2cf;
+  --color-sage-300: #c3cdad;
+  --color-sage-400: #a3b389;
+  --color-sage-500: #85976c;
+  --color-sage-600: #687753;
 }
 
 html {
@@ -23,7 +31,7 @@ body {
 }
 
 ::selection {
-  background: rgba(99, 102, 241, 0.35);
+  background: rgba(133, 151, 108, 0.35);
   color: #fff;
 }
 
@@ -32,16 +40,16 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #05060a;
+  background: #0b0a07;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #27272a;
+  background: #292524;
   border-radius: 9999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #3f3f46;
+  background: #44403c;
 }
 
 @keyframes gradient-pan {

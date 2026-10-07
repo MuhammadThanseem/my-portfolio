@@ -24,12 +24,12 @@ export function LiveShowcase() {
   const site = showcaseSites[index];
 
   return (
-    <section className="relative px-6 pt-36 pb-28 sm:px-8 sm:pt-40">
+    <section className="relative px-6 pt-32 pb-20 sm:px-8 sm:pt-36">
       <div className="mx-auto max-w-6xl">
         <Reveal variant="blur">
-          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-cyan-300">Live Showcase</p>
+          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-sage-300">Live Showcase</p>
           <h1 className="mt-3 text-3xl font-bold text-white sm:text-4xl md:text-5xl">Real products, live in production</h1>
-          <p className="mt-3 max-w-2xl text-zinc-400">
+          <p className="mt-3 max-w-2xl text-stone-400">
             A closer look at sites and products I&apos;ve designed and shipped for clients.
           </p>
         </Reveal>
@@ -42,7 +42,7 @@ export function LiveShowcase() {
           >
             <div className="relative lg:col-span-3">
               <motion.div
-                className="absolute -inset-10 -z-10 rounded-full bg-gradient-to-br from-indigo-600/25 via-violet-600/15 to-cyan-500/15 blur-3xl"
+                className="absolute -inset-10 -z-10 rounded-full bg-gradient-to-br from-sage-600/25 via-sage-600/15 to-sage-500/15 blur-3xl"
                 animate={{ scale: [1, 1.08, 1] }}
                 transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
               />
@@ -52,7 +52,7 @@ export function LiveShowcase() {
                 className="absolute inset-0 translate-x-4 translate-y-6 rotate-2 rounded-2xl border border-white/10 bg-white/[0.02] opacity-50"
               />
 
-              <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-[#0b0d14] shadow-2xl shadow-black/50">
+              <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-[#16130d] shadow-2xl shadow-black/50">
                 <a
                   href={site.url}
                   target="_blank"
@@ -60,7 +60,7 @@ export function LiveShowcase() {
                   className="group block"
                   aria-label={`Visit ${site.name}`}
                 >
-                  <div className="flex items-center gap-2 border-b border-white/10 bg-[#0e1018] px-4 py-3.5">
+                  <div className="flex items-center gap-2 border-b border-white/10 bg-[#1a160e] px-4 py-3.5">
                     <span className="h-2.5 w-2.5 rounded-full bg-red-400/70" />
                     <span className="h-2.5 w-2.5 rounded-full bg-yellow-400/70" />
                     <span className="h-2.5 w-2.5 rounded-full bg-green-400/70" />
@@ -71,12 +71,12 @@ export function LiveShowcase() {
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
                         transition={{ duration: 0.3 }}
-                        className="ml-3 truncate rounded-full bg-white/[0.04] px-3 py-1 text-[11px] text-zinc-400"
+                        className="ml-3 truncate rounded-full bg-white/[0.04] px-3 py-1 text-[11px] text-stone-400"
                       >
                         {site.domain}
                       </motion.span>
                     </AnimatePresence>
-                    <ExternalLinkIcon className="ml-auto h-3.5 w-3.5 flex-none text-zinc-600 transition-colors duration-300 group-hover:text-zinc-300" />
+                    <ExternalLinkIcon className="ml-auto h-3.5 w-3.5 flex-none text-stone-600 transition-colors duration-300 group-hover:text-stone-300" />
                   </div>
 
                   <div className="relative aspect-[16/10] w-full overflow-hidden">
@@ -123,12 +123,12 @@ export function LiveShowcase() {
                         initial={{ width: "0%" }}
                         animate={{ width: "100%" }}
                         transition={{ duration: INTERVAL / 1000, ease: "linear" }}
-                        className="absolute inset-y-0 left-0 bg-gradient-to-r from-indigo-500/15 to-cyan-400/10"
+                        className="absolute inset-y-0 left-0 bg-gradient-to-r from-sage-500/15 to-sage-400/10"
                       />
                     )}
                     <div className="relative flex items-center justify-between gap-3">
-                      <span className={`font-semibold ${active ? "text-white" : "text-zinc-300"}`}>{s.name}</span>
-                      <span className="text-xs text-zinc-500">{s.domain}</span>
+                      <span className={`font-semibold ${active ? "text-white" : "text-stone-300"}`}>{s.name}</span>
+                      <span className="text-xs text-stone-500">{s.domain}</span>
                     </div>
                     <AnimatePresence>
                       {active && (
@@ -137,7 +137,7 @@ export function LiveShowcase() {
                           animate={{ opacity: 1, height: "auto", marginTop: 8 }}
                           exit={{ opacity: 0, height: 0, marginTop: 0 }}
                           transition={{ duration: 0.3 }}
-                          className="relative overflow-hidden text-sm leading-relaxed text-zinc-400"
+                          className="relative overflow-hidden text-sm leading-relaxed text-stone-400"
                         >
                           {s.blurb}
                         </motion.p>

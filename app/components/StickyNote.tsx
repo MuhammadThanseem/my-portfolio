@@ -4,15 +4,15 @@ import { motion } from "framer-motion";
 import { EASE_OUT } from "../lib/motion";
 
 const tapeColors = {
-  amber: "bg-amber-300/80",
-  cyan: "bg-cyan-300/80",
-  violet: "bg-violet-300/80",
+  cream: "bg-[#ece3d1]/80",
+  stone: "bg-stone-300/80",
+  sage: "bg-sage-300/80",
 } as const;
 
 export function StickyNote({
   text,
   rotate = -4,
-  tape = "amber",
+  tape = "cream",
   delay = 0,
   className = "",
 }: {
@@ -34,7 +34,7 @@ export function StickyNote({
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay, ease: EASE_OUT }}
       data-cursor-hover
-      className={`relative inline-flex cursor-grab select-none items-center whitespace-nowrap rounded-sm border border-white/10 bg-[#12141c] px-4 py-2.5 text-xs font-medium text-zinc-200 shadow-lg shadow-black/40 active:cursor-grabbing ${className}`}
+      className={`relative inline-flex cursor-grab select-none items-center whitespace-nowrap rounded-sm border border-white/10 bg-[#1c170f] px-4 py-2.5 text-xs font-medium text-stone-200 shadow-lg shadow-black/40 active:cursor-grabbing ${className}`}
     >
       <span
         aria-hidden

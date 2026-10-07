@@ -32,13 +32,13 @@ export function Loader() {
             clipPath: "inset(0 0 100% 0)",
             transition: { duration: 0.7, ease: [0.65, 0, 0.35, 1] },
           }}
-          className="fixed inset-0 z-[999] flex flex-col items-center justify-center gap-6 bg-[#05060a]"
+          className="fixed inset-0 z-[999] flex flex-col items-center justify-center gap-6 bg-[#0b0a07]"
         >
           <motion.span
             initial={{ scale: 0.7, opacity: 0, rotate: -8 }}
             animate={{ scale: 1, opacity: 1, rotate: 0 }}
             transition={{ duration: 0.6, ease: [0.21, 0.47, 0.32, 0.98] }}
-            className="flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-indigo-400 via-violet-400 to-cyan-300 text-lg font-bold text-black"
+            className="flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-sage-400 via-sage-400 to-sage-300 text-lg font-bold text-black"
           >
             MT
           </motion.span>
@@ -48,7 +48,7 @@ export function Loader() {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.45, delay: 0.3, ease: [0.21, 0.47, 0.32, 0.98] }}
-              className="bg-gradient-to-r from-indigo-300 via-violet-300 to-cyan-300 bg-clip-text text-xl font-semibold text-transparent"
+              className="bg-gradient-to-r from-sage-300 via-sage-300 to-sage-300 bg-clip-text text-xl font-semibold text-transparent"
             >
               Welcome 👋
             </motion.p>
@@ -56,7 +56,7 @@ export function Loader() {
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.45, delay: 0.5, ease: [0.21, 0.47, 0.32, 0.98] }}
-              className="text-sm text-zinc-400"
+              className="text-sm text-stone-400"
             >
               to {profile.shortName}&apos;s portfolio
             </motion.p>
@@ -72,7 +72,7 @@ export function Loader() {
               initial={{ x: "-100%" }}
               animate={{ x: "0%" }}
               transition={{ duration: 1, delay: 0.7, ease: [0.21, 0.47, 0.32, 0.98] }}
-              className="h-full w-full bg-gradient-to-r from-indigo-400 via-violet-400 to-cyan-300"
+              className="h-full w-full bg-gradient-to-r from-sage-400 via-sage-400 to-sage-300"
             />
           </motion.div>
         </motion.div>

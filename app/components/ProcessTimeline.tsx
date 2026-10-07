@@ -15,12 +15,12 @@ const icons = {
 
 export function ProcessTimeline() {
   return (
-    <section className="relative px-6 pt-36 pb-16 sm:px-8 sm:pt-40">
+    <section className="relative px-6 pt-32 pb-14 sm:px-8 sm:pt-36">
       <div className="mx-auto max-w-6xl">
         <Reveal>
-          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-cyan-300">Process</p>
+          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-sage-300">Process</p>
           <h1 className="mt-3 text-3xl font-bold text-white sm:text-4xl md:text-5xl">How I build</h1>
-          <p className="mt-4 max-w-2xl text-lg leading-relaxed text-zinc-400">
+          <p className="mt-4 max-w-2xl text-lg leading-relaxed text-stone-400">
             No two projects are identical, but the shape of the work rarely changes. Five stages, repeated on
             every feature and every release.
           </p>
@@ -35,11 +35,11 @@ export function ProcessTimeline() {
                   <span className="absolute -right-2 -top-4 text-7xl font-bold text-white/[0.04]">
                     {item.step}
                   </span>
-                  <div className="relative flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10 bg-white/[0.04] text-cyan-300">
+                  <div className="relative flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10 bg-white/[0.04] text-sage-300">
                     <Icon className="h-5 w-5" />
                   </div>
                   <h3 className="relative mt-5 text-lg font-semibold text-white">{item.title}</h3>
-                  <p className="relative mt-3 text-sm leading-relaxed text-zinc-400">{item.description}</p>
+                  <p className="relative mt-3 text-sm leading-relaxed text-stone-400">{item.description}</p>
                 </SpotlightCard>
               </Reveal>
             );
